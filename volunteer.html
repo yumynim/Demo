@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>ボランティアスタッフ | RE FASHION MARKET（Demo）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="volunteer">
+  <header class="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>ボランティアスタッフ</h1>
+      <p class="page-sub">ボランティアスタッフ 応募フォーム</p>
+    </div>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="text-block">
+          <p>こんにちは！この度はボランティアスタッフにご興味をお持ちいただきありがとうございます。</p>
+        </div>
+
+        <h2 class="section-title mt-lg">応募にあたって</h2>
+        <div class="text-block">
+          <p>☆ 交通費：規定の上限まで支給</p>
+          <p>☆ 業務内容：設営、受付、案内、レジ等</p>
+        </div>
+
+        <h2 class="section-title mt-lg">ボランティアスタッフ特典</h2>
+        <div class="text-block">
+          <p>☆ 休憩時間にブースを見られる！（当日分のチケット購入の必要なし◎）</p>
+          <p>☆ 参加時間に合わせて、イベントで使える金券をもらえる！</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-invert">
+      <div class="container container-narrow">
+        <h2 class="section-title">応募フォーム</h2>
+        <form id="volForm" class="form-invert" novalidate>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="v-sei">姓<span class="req">*</span></label>
+              <input type="text" id="v-sei" name="sei" required>
+            </div>
+            <div class="form-row">
+              <label for="v-mei">名<span class="req">*</span></label>
+              <input type="text" id="v-mei" name="mei" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="v-school">学校名<span class="req">*</span></label>
+              <input type="text" id="v-school" name="school" required>
+            </div>
+            <div class="form-row">
+              <label for="v-grade">学年<span class="req">*</span></label>
+              <input type="text" id="v-grade" name="grade" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="v-contact">連絡先（メッセージアプリのID等）<span class="req">*</span></label>
+            <input type="text" id="v-contact" name="contact" required>
+            <p class="form-note">連絡用グループにご招待します。</p>
+          </div>
+          <div class="form-row">
+            <label for="v-payid">送金用ID（デモ項目）</label>
+            <input type="text" id="v-payid" name="payid">
+            <p class="form-note">交通費をお支払いするため必要です。</p>
+          </div>
+          <div class="form-row">
+            <label for="v-station">家からの最寄駅<span class="req">*</span></label>
+            <input type="text" id="v-station" name="station" required>
+          </div>
+          <div class="form-row">
+            <label for="v-fare">交通費（往復）<span class="req">*</span></label>
+            <input type="text" id="v-fare" name="fare" required>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="v-venue">希望する会場<span class="req">*</span></label>
+              <select id="v-venue" name="venue" required>
+                <option value="">選択してください</option>
+                <option>大阪会場</option>
+                <option>東京会場</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="v-date">希望する日程<span class="req">*</span></label>
+              <select id="v-date" name="date" required>
+                <option value="">選択してください</option>
+                <option>7月19日(日)</option>
+                <option>7月20日(月)</option>
+                <option>7月26日(日) 1部</option>
+                <option>7月26日(日) 2部</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="v-motivation">志望動機（100文字程度）<span class="req">*</span></label>
+            <textarea id="v-motivation" name="motivation" rows="4" required></textarea>
+          </div>
+          <div class="form-row">
+            <label>ボランティアスタッフに参加したことがあるか<span class="req">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="experience" value="yes" required>参加したことがある</label>
+              <label><input type="radio" name="experience" value="no">参加したことはない</label>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-outline-invert btn-lg">送信</button>
+            <p class="form-done" id="volDone" hidden>ご応募いただきありがとうございました！</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="js/layout.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

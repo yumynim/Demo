@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>ニュース | RE FASHION MARKET（Demo）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="news">
+  <header class="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>"りふぁ" NEWS</h1>
+      <p class="page-sub">NEWS</p>
+    </div>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <!-- カテゴリフィルタ -->
+        <div class="news-tabs" id="newsTabs">
+          <button type="button" class="news-tab is-active" data-cat="すべて">すべて</button>
+          <button type="button" class="news-tab" data-cat="イベント">イベント</button>
+          <button type="button" class="news-tab" data-cat="メディア">メディア</button>
+          <button type="button" class="news-tab" data-cat="インフルエンサー">インフルエンサー</button>
+          <button type="button" class="news-tab" data-cat="キャンペーン">キャンペーン</button>
+        </div>
+
+        <ul class="news-list" id="newsList"></ul>
+
+        <div class="pagination" id="pagination">
+          <button type="button" class="is-active">1</button>
+          <button type="button">2</button>
+          <button type="button">3</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="js/layout.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

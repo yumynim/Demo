@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>サンプルセール | RE FASHION MARKET（Demo）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="sample">
+  <header class="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>サンプルセール</h1>
+      <p class="page-sub">ブース出店&amp;サンプリング — 出店申込フォーム</p>
+    </div>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <form id="sampleForm" novalidate>
+          <div class="form-row">
+            <label for="ss-brand">ブランド名<span class="req">*</span></label>
+            <input type="text" id="ss-brand" name="brand" required>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="ss-sei">姓<span class="req">*</span></label>
+              <input type="text" id="ss-sei" name="sei" required>
+            </div>
+            <div class="form-row">
+              <label for="ss-mei">名<span class="req">*</span></label>
+              <input type="text" id="ss-mei" name="mei" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="ss-email">メールアドレス<span class="req">*</span></label>
+              <input type="email" id="ss-email" name="email" required>
+            </div>
+            <div class="form-row">
+              <label for="ss-tel">電話番号<span class="req">*</span></label>
+              <input type="tel" id="ss-tel" name="tel" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="ss-company">会社名<span class="req">*</span></label>
+              <input type="text" id="ss-company" name="company" required>
+            </div>
+            <div class="form-row">
+              <label for="ss-base">本拠地<span class="req">*</span></label>
+              <input type="text" id="ss-base" name="base" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>当日の販売スタッフの有無<span class="req">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="staff" value="yes" required>参加する</label>
+              <label><input type="radio" name="staff" value="no">参加しない</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="ss-staff-count">販売スタッフ有りの場合、何名参加しますか？</label>
+            <input type="number" id="ss-staff-count" name="staffCount" min="0">
+          </div>
+          <div class="form-row">
+            <label for="ss-logo">ブランドロゴ（写真）</label>
+            <div class="upload-box">
+              アップロード<br>
+              <span class="upload-note">jpeg・pngファイルのみ（最大15MB）※デモのため実際のアップロードは行われません</span>
+              <input type="file" id="ss-logo" name="logo" accept=".jpg,.jpeg,.png" class="upload-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="ss-desc">販売する商品の説明<span class="req">*</span></label>
+            <textarea id="ss-desc" name="desc" rows="4" required></textarea>
+          </div>
+          <div class="form-row">
+            <label for="ss-visual">ブランドイメージビジュアル</label>
+            <div class="upload-box">
+              アップロード<br>
+              <span class="upload-note">jpeg・pngファイルのみ（最大15MB）※デモのため実際のアップロードは行われません</span>
+              <input type="file" id="ss-visual" name="visual" accept=".jpg,.jpeg,.png" class="upload-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="ss-address">タグ発送のための住所（タグが不要な場合は記入なし）</label>
+            <input type="text" id="ss-address" name="address">
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-solid btn-lg">送信する</button>
+            <p class="form-done" id="sampleDone" hidden>送信ありがとうございました</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="js/layout.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

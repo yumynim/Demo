@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>株式会社HAGI | RE FASHION MARKET（Demo）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="hagi">
+  <header class="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>株式会社HAGI</h1>
+      <p class="page-sub">COMPANY</p>
+    </div>
+
+    <!-- MISSION / VISION -->
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="mvv-list">
+          <div class="mvv-item">
+            <h3>MISSION</h3>
+            <p>人の持つ価値を、人とのつながりを通じて社会の価値に変えていく。</p>
+          </div>
+          <div class="mvv-item">
+            <h3>VISION</h3>
+            <p>誰もが持つ可能性を、感謝と経済価値に変える機会をつくる。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="section section-invert">
+      <div class="container container-narrow">
+        <h2 class="section-title">会社概要</h2>
+        <table class="def-table def-table-invert">
+          <tr><th>商号</th><td>株式会社◯◯◯◯（ダミー）</td></tr>
+          <tr><th>所在地</th><td>大阪市◯◯区◯◯ 1-2-3 ◯◯ビル 1F（ダミー）</td></tr>
+          <tr><th>代表</th><td>山田 花子（ダミー）</td></tr>
+          <tr><th>設立</th><td>2021年3月</td></tr>
+          <tr><th>事業内容</th><td>RE FASHION MARKETの企画・運営</td></tr>
+          <tr><th>メールアドレス</th><td>info@example.com</td></tr>
+          <tr><th>電話番号</th><td>00-0000-0000（ダミー）</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- メンバー -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">メンバー</h2>
+        <div class="member-grid" id="memberGrid"></div>
+      </div>
+    </section>
+
+    <!-- 過去協賛スポンサー -->
+    <section class="section section-invert">
+      <div class="container">
+        <h2 class="section-title">過去協賛頂いたスポンサー</h2>
+        <div class="sponsor-grid" id="sponsorGrid"></div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ（取材・メディア掲載） -->
+    <section class="section">
+      <div class="container container-narrow">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-note">取材・メディア掲載の依頼はこちらから送信お願い致します。</p>
+        <form id="pressForm" novalidate>
+          <div class="form-row">
+            <label for="p-name">名前<span class="req">*</span></label>
+            <input type="text" id="p-name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="p-company">会社名<span class="req">*</span></label>
+            <input type="text" id="p-company" name="company" required>
+          </div>
+          <div class="form-row">
+            <label for="p-url">会社のホームページのURL</label>
+            <input type="url" id="p-url" name="url">
+          </div>
+          <div class="form-row">
+            <label for="p-message">お問い合わせ内容<span class="req">*</span></label>
+            <textarea id="p-message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-solid btn-lg">送信する</button>
+            <p class="form-done" id="pressDone" hidden>送信が完了しました。</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

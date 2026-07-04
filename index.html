@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>RE FASHION MARKET | リファッションマーケット（Demo）</title>
+  <meta name="description" content="インフルエンサーフリーマーケットイベントのサイト（デモ・モノクロ版）">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= Header（js/layout.js が注入） ================= -->
+  <header class="site-header" id="top"></header>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-stripe"></div>
+        <div class="hero-stripe"></div>
+        <div class="hero-stripe"></div>
+      </div>
+      <div class="hero-inner">
+        <p class="hero-kicker">INFLUENCER FLEA MARKET</p>
+        <h1 class="hero-title">RE FASHION<br>MARKET</h1>
+        <p class="hero-lead">インフルエンサーと直接会える、フリーマーケットイベント。</p>
+        <a href="#tickets" class="btn btn-solid btn-lg">チケット購入</a>
+      </div>
+    </section>
+
+    <!-- ================= Tickets ================= -->
+    <section class="section section-tickets" id="tickets">
+      <div class="container">
+        <h2 class="section-title">"チケット購入"</h2>
+        <div class="event-grid" id="eventGrid">
+          <!-- JSで生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Goods ================= -->
+    <section class="section section-goods section-invert" id="goods">
+      <div class="container">
+        <h2 class="section-title">"インフルエンサーグッズ購入"</h2>
+        <p class="section-note">チェキ【郵送】 — 表示価格は消費税抜きです。</p>
+        <div class="goods-grid" id="goodsGrid">
+          <!-- JSで生成 -->
+        </div>
+        <div class="section-more">
+          <button type="button" class="btn btn-outline-invert" id="goodsMore">もっと見る</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= News ================= -->
+    <section class="section section-news" id="news">
+      <div class="container">
+        <h2 class="section-title">"りふぁ" NEWS</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <time datetime="2026-02-24">2026.02.24</time>
+            <span class="news-tag">PRESS</span>
+            <a href="news.html">コスメブランドとのコラボ企画が自発投稿だけで大きく拡散されました</a>
+          </li>
+          <li class="news-item">
+            <time datetime="2025-10-29">2025.10.29</time>
+            <span class="news-tag">MEDIA</span>
+            <a href="news.html">【業界紙に掲載いただきました】</a>
+          </li>
+          <li class="news-item">
+            <time datetime="2025-10-29">2025.10.29</time>
+            <span class="news-tag">MEDIA</span>
+            <a href="news.html">【全国紙に弊社が掲載いただきました】</a>
+          </li>
+        </ul>
+        <div class="section-more">
+          <a href="news.html" class="btn btn-outline">ニュース一覧 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= About Event ================= -->
+    <section class="section section-about">
+      <div class="container">
+        <h2 class="section-title">"開催"</h2>
+        <p class="section-lead">開催様子・インフルエンサー・スポンサー・Instagramの紹介</p>
+        <div class="about-gallery">
+          <figure class="ph ph-wide"><figcaption>EVENT PHOTO</figcaption></figure>
+          <figure class="ph"><figcaption>INFLUENCER</figcaption></figure>
+          <figure class="ph"><figcaption>SPONSOR</figcaption></figure>
+          <figure class="ph"><figcaption>INSTAGRAM</figcaption></figure>
+          <figure class="ph ph-wide"><figcaption>BOOTH</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Company ================= -->
+    <section class="section section-company section-invert" id="company">
+      <div class="container company-flex">
+        <div class="company-text">
+          <h2 class="section-title">株式会社HAGI</h2>
+          <p>
+            インフルエンサーとファンをつなぐフリーマーケットイベントを企画・運営しています。
+            出店者と来場者、スポンサー企業のすべてに価値が生まれる場づくりを目指しています。
+          </p>
+          <a href="hagi.html" class="btn btn-outline-invert">Read More　→</a>
+        </div>
+        <div class="company-links">
+          <a href="recruit.html" class="tile-link"><span>採用情報</span><span class="tile-arrow">→</span></a>
+          <a href="sponsorship.html" class="tile-link"><span>イベント協賛詳細</span><span class="tile-arrow">→</span></a>
+          <a href="event.html" class="tile-link"><span>過去のイベント</span><span class="tile-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Past Influencers / Sponsors ================= -->
+    <section class="section section-past">
+      <div class="container">
+        <h2 class="section-title">"過去に出店したインフルエンサー"</h2>
+        <div class="logo-marquee" aria-hidden="true">
+          <div class="logo-track" id="influencerTrack"></div>
+        </div>
+
+        <h2 class="section-title mt-lg">"過去協賛いただいたスポンサー"</h2>
+        <div class="sponsor-grid" id="sponsorGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section section-faq section-invert" id="faq">
+      <div class="container container-narrow">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list" id="faqList">
+          <!-- JSで生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Contact ================= -->
+    <section class="section section-contact" id="contact">
+      <div class="container container-narrow">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="contact-mail">info@example.com</p>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-solid btn-lg">送信する</button>
+            <p class="form-done" id="formDone" hidden>送信が完了しました。</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer（js/layout.js が注入） ================= -->
+  <footer class="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
