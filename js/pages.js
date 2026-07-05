@@ -16,15 +16,31 @@ const PAGE_INITS = {
     if (!grid) return;
     grid.innerHTML = GOODS.map(
       (g, i) => `
-      <article class="goods-card is-visible">
-        <div class="goods-visual"><span>${String.fromCharCode(65 + (i % 26))}</span></div>
+      <article class="goods-card is-visible" data-index="${i}">
+        <div class="goods-visual" role="button" tabindex="0" aria-label="${g.name}の詳細を見る"><span>${String.fromCharCode(65 + (i % 26))}</span></div>
         <div class="goods-body">
           <h3 class="goods-name">${g.name}</h3>
           <p class="goods-price-label">価格</p>
           <p class="goods-price">￥${g.price.toLocaleString("ja-JP")} <span class="goods-tax">消費税抜き</span></p>
+          <button type="button" class="goods-add" data-index="${i}">カートに追加</button>
         </div>
       </article>`
     ).join("");
+
+    grid.querySelectorAll(".goods-add").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const i = Number(btn.dataset.index);
+        Store.add({ id: "goods-" + i, name: GOODS[i].name, price: GOODS[i].price });
+        Store.openDrawer();
+      })
+    );
+    grid.querySelectorAll(".goods-visual").forEach((v) => {
+      const open = () => Store.openProduct(Number(v.closest(".goods-card").dataset.index));
+      v.addEventListener("click", open);
+      v.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
   },
 
   // ---------- 株式会社HAGI ----------
@@ -58,40 +74,60 @@ const PAGE_INITS = {
     setupDemoForm("pressForm", "pressDone");
   },
 
-  // ---------- ニュース ----------
+  // ---------- ニュース（カテゴリフィルタ × ページネーション） ----------
   news() {
     const list = document.getElementById("newsList");
     if (!list) return;
     const tabs = document.querySelectorAll(".news-tab");
+    const pagination = document.getElementById("pagination");
+    const PER_PAGE = 6;
+    let currentCat = "すべて";
+    let currentPage = 1;
 
-    function render(cat) {
-      const items = NEWS_ARTICLES.filter((a) => cat === "すべて" || a.cat === cat);
-      list.innerHTML = items.length
-        ? items.map((a) => `
+    function filtered() {
+      return NEWS_ARTICLES.filter((a) => currentCat === "すべて" || a.cat === currentCat);
+    }
+
+    function render() {
+      const items = filtered();
+      const pages = Math.max(1, Math.ceil(items.length / PER_PAGE));
+      currentPage = Math.min(currentPage, pages);
+      const slice = items.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
+
+      list.innerHTML = slice.length
+        ? slice.map((a) => `
           <li class="news-item">
             <time>${a.date}</time>
             <span class="news-tag">${a.cat}</span>
             <a href="#">${a.title}</a>
           </li>`).join("")
         : '<li class="news-item"><span>該当する記事はありません。</span></li>';
+
+      pagination.innerHTML = Array.from({ length: pages }, (_, i) =>
+        `<button type="button" ${i + 1 === currentPage ? 'class="is-active"' : ""} data-page="${i + 1}">${i + 1}</button>`
+      ).join("");
+      pagination.hidden = pages <= 1;
+
+      pagination.querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => {
+          currentPage = Number(b.dataset.page);
+          render();
+          list.scrollIntoView({ behavior: "smooth", block: "start" });
+        })
+      );
     }
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         tabs.forEach((t) => t.classList.remove("is-active"));
         tab.classList.add("is-active");
-        render(tab.dataset.cat);
+        currentCat = tab.dataset.cat;
+        currentPage = 1;
+        render();
       });
     });
 
-    document.querySelectorAll("#pagination button").forEach((b) => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll("#pagination button").forEach((x) => x.classList.remove("is-active"));
-        b.classList.add("is-active");
-      });
-    });
-
-    render("すべて");
+    render();
   },
 
   // ---------- 過去のイベント ----------
@@ -99,7 +135,7 @@ const PAGE_INITS = {
     const rows = document.getElementById("eventRows");
     if (!rows) return;
     rows.innerHTML = PAST_EVENTS.map(
-      (ev) => `
+      (ev, i) => `
       <div class="event-row">
         <div class="event-row-date">
           <div class="d">${ev.d}</div>
@@ -110,9 +146,26 @@ const PAGE_INITS = {
           <p class="venue">${ev.venue}</p>
           <p class="time">${ev.time}</p>
         </div>
-        <a href="#" class="btn btn-outline">詳細</a>
+        <button type="button" class="btn btn-outline event-toggle" data-index="${i}" aria-expanded="false">詳細</button>
+        <div class="event-detail" id="eventDetail${i}">
+          <div class="event-detail-inner">
+            <p>${EVENT_DESC}</p>
+            <p class="addr">📍 ${ev.venue}｜${ev.addr}</p>
+            <p class="addr">🕐 ${ev.time}</p>
+          </div>
+        </div>
       </div>`
     ).join("");
+
+    rows.querySelectorAll(".event-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const detail = document.getElementById("eventDetail" + btn.dataset.index);
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        btn.textContent = isOpen ? "詳細" : "閉じる";
+        detail.style.maxHeight = isOpen ? "0" : detail.scrollHeight + "px";
+      });
+    });
   },
 
   // ---------- フォームのみのページ ----------

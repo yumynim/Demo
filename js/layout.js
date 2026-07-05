@@ -49,6 +49,13 @@ function renderHeader() {
     </nav>
     <div class="header-actions">
       <button type="button" class="btn btn-outline btn-login">ログイン</button>
+      <button type="button" class="icon-btn" id="cartBtn" aria-label="カートを開く">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M6 7h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/>
+          <path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+        </svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -62,6 +69,26 @@ function renderFooter() {
     <div class="footer-brand">
       <p class="footer-logo">RE FASHION MARKET</p>
       <p class="footer-copy-lead">インフルエンサーフリーマーケット（デモサイト）</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram（デモ）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="TikTok（デモ）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M14 4v9.5a4 4 0 1 1-4-4"/>
+            <path d="M14 5.5c.8 2 2.4 3.3 4.5 3.5"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="X（デモ）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19"/>
+          </svg>
+        </a>
+      </div>
     </div>
     <nav class="footer-nav" aria-label="フッターメニュー">
       <div>
@@ -91,6 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector(".site-footer");
   if (header && !header.innerHTML.trim()) header.innerHTML = renderHeader();
   if (footer && !footer.innerHTML.trim()) footer.innerHTML = renderFooter();
+
+  // スキップリンク（アクセシビリティ）
+  const main = document.querySelector("main");
+  if (main && !document.querySelector(".skip-link")) {
+    main.id = main.id || "main-content";
+    const skip = document.createElement("a");
+    skip.className = "skip-link";
+    skip.href = "#" + main.id;
+    skip.textContent = "本文へスキップ";
+    document.body.prepend(skip);
+  }
+
   setupNavCommon();
 });
 

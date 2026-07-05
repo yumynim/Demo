@@ -28,7 +28,7 @@ function renderEvents() {
   const grid = document.getElementById("eventGrid");
   if (!grid) return;
 
-  grid.innerHTML = EVENTS.map((ev) => {
+  grid.innerHTML = EVENTS.map((ev, i) => {
     const d = daysUntil(ev.date);
     let badge;
     if (d > 0) badge = `イベントまで${d}日`;
@@ -45,12 +45,16 @@ function renderEvents() {
           <h3 class="event-name">${ev.name}</h3>
           <p class="event-date">${ev.dateLabel}</p>
           <div class="event-actions">
-            <a href="#tickets" class="btn btn-outline">もっと見る</a>
-            <a href="#tickets" class="btn btn-solid">チケットを購入</a>
+            <a href="event.html" class="btn btn-outline">もっと見る</a>
+            <button type="button" class="btn btn-solid ticket-buy" data-index="${i}">チケットを購入</button>
           </div>
         </div>
       </article>`;
   }).join("");
+
+  grid.querySelectorAll(".ticket-buy").forEach((btn) =>
+    btn.addEventListener("click", () => Store.openTicket(Number(btn.dataset.index)))
+  );
 }
 
 // ---------- グッズ購入（商品グリッド + もっと見る） ----------
@@ -64,19 +68,39 @@ function renderGoods() {
   grid.innerHTML = GOODS.map(
     (g, i) => `
       <article class="goods-card" data-index="${i}">
-        <div class="goods-visual"><span>${String.fromCharCode(65 + (i % 26))}</span></div>
+        <div class="goods-visual" role="button" tabindex="0" aria-label="${g.name}の詳細を見る"><span>${String.fromCharCode(65 + (i % 26))}</span></div>
         <div class="goods-body">
           <h3 class="goods-name">${g.name}</h3>
           <p class="goods-price-label">価格</p>
           <p class="goods-price">${yen(g.price)} <span class="goods-tax">消費税抜き</span></p>
+          <button type="button" class="goods-add" data-index="${i}">カートに追加</button>
         </div>
       </article>`
   ).join("");
 
+  bindGoodsActions(grid);
   showMoreGoods();
 
   const moreBtn = document.getElementById("goodsMore");
   if (moreBtn) moreBtn.addEventListener("click", showMoreGoods);
+}
+
+// 商品カードの操作（カート追加・詳細モーダル）を紐づけ
+function bindGoodsActions(grid) {
+  grid.querySelectorAll(".goods-add").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const i = Number(btn.dataset.index);
+      Store.add({ id: "goods-" + i, name: GOODS[i].name, price: GOODS[i].price });
+      Store.openDrawer();
+    })
+  );
+  grid.querySelectorAll(".goods-visual").forEach((v) => {
+    const open = () => Store.openProduct(Number(v.closest(".goods-card").dataset.index));
+    v.addEventListener("click", open);
+    v.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
 }
 
 function showMoreGoods() {
