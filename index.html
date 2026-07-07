@@ -1,11 +1,25 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════
+  ページ: トップページ（index.html）
+  ▼ このページで編集する場所
+  ・イベント・商品・FAQ・スポンサーのデータ → js/data.js
+  ・キャッチコピー・見出し → このファイル内の ★ コメントの下
+  ・お問い合わせ先メール → このファイル内の ★ コメントの下
+
+  ▼ 全ページ共通
+  ・メニュー / フッター → js/layout.js
+  ・色やサイズ → css/style.css（先頭の :root で色を一括変更可）
+  ・記入する内容の一覧 → 指示テンプレート.txt
+  ═══════════════════════════════════════════════════
+-->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>RE FASHION MARKET | リファッションマーケット（Demo）</title>
+  <title>RE FASHION MARKET | リファッションマーケット | 日本、大阪府（Demo）</title>
   <meta name="description" content="インフルエンサーフリーマーケットイベントのサイト（デモ・モノクロ版）">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +42,7 @@
       <div class="hero-inner">
         <p class="hero-kicker">INFLUENCER FLEA MARKET</p>
         <h1 class="hero-title">RE FASHION<br>MARKET</h1>
+        <!-- ★ キャッチコピー: 下の1行を書き換え -->
         <p class="hero-lead">インフルエンサーと直接会える、フリーマーケットイベント。</p>
         <a href="#tickets" class="btn btn-solid btn-lg">チケット購入</a>
       </div>
@@ -117,6 +132,7 @@
       <div class="container company-flex">
         <div class="company-text">
           <h2 class="section-title">株式会社HAGI</h2>
+          <!-- ★ 会社紹介文: 下の段落を書き換え -->
           <p>
             インフルエンサーとファンをつなぐフリーマーケットイベントを企画・運営しています。
             出店者と来場者、スポンサー企業のすべてに価値が生まれる場づくりを目指しています。
@@ -158,6 +174,7 @@
     <section class="section section-contact" id="contact">
       <div class="container container-narrow">
         <h2 class="section-title">お問い合わせ</h2>
+        <!-- ★ お問い合わせ先メール: 下の1行を書き換え -->
         <p class="contact-mail">info@example.com</p>
         <form id="contactForm" novalidate>
           <div class="form-row">

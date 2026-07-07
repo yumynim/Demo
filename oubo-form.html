@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════
+  ページ: 応募フォーム（インターン）（oubo-form.html）
+  ▼ このページで編集する場所
+  ・選考ステップ・フォーム項目 → このファイル内に直接記述
+
+  ▼ 全ページ共通
+  ・メニュー / フッター → js/layout.js
+  ・色やサイズ → css/style.css（先頭の :root で色を一括変更可）
+  ・記入する内容の一覧 → 指示テンプレート.txt
+  ═══════════════════════════════════════════════════
+-->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -107,6 +119,15 @@
           <div class="form-row">
             <label for="a-intern-detail">インターンの内容</label>
             <textarea id="a-intern-detail" name="internDetail" rows="3"></textarea>
+          </div>
+          <div class="form-row">
+            <label for="a-shindan1">適性診断を受けた結果を記載してください</label>
+            <textarea id="a-shindan1" name="shindan1" rows="3"></textarea>
+            <p class="form-note">※ 使用する診断サービスは実装時に指定してください（デモ）</p>
+          </div>
+          <div class="form-row">
+            <label for="a-shindan2">診断結果のモチベーション・リソース欄を記載してください</label>
+            <textarea id="a-shindan2" name="shindan2" rows="3"></textarea>
           </div>
           <div class="form-row">
             <label for="a-motivation">志望動機（100文字程度）<span class="req">*</span></label>

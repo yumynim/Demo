@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════
+  ページ: ボランティアスタッフ（volunteer.html）
+  ▼ このページで編集する場所
+  ・特典・応募条件・フォーム項目 → このファイル内に直接記述
+  ・希望日程の選択肢 → このファイル内 select#v-date
+
+  ▼ 全ページ共通
+  ・メニュー / フッター → js/layout.js
+  ・色やサイズ → css/style.css（先頭の :root で色を一括変更可）
+  ・記入する内容の一覧 → 指示テンプレート.txt
+  ═══════════════════════════════════════════════════
+-->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -65,12 +78,12 @@
             </div>
           </div>
           <div class="form-row">
-            <label for="v-contact">連絡先（メッセージアプリのID等）<span class="req">*</span></label>
+            <label for="v-contact">LINEアカウントのURL<span class="req">*</span></label>
             <input type="text" id="v-contact" name="contact" required>
             <p class="form-note">連絡用グループにご招待します。</p>
           </div>
           <div class="form-row">
-            <label for="v-payid">送金用ID（デモ項目）</label>
+            <label for="v-payid">PayPayのURL</label>
             <input type="text" id="v-payid" name="payid">
             <p class="form-note">交通費をお支払いするため必要です。</p>
           </div>

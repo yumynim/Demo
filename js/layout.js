@@ -2,6 +2,8 @@
 // 共通レイアウト（ヘッダー / フッター）を全ページに注入
 // ==========================================================
 
+// ★ メニュー項目はここを編集（label: 表示名 / href: リンク先ファイル）
+// 元サイトと同じ並び。項目を増やす場合は行をコピーして追記
 const NAV_ITEMS = [
   { href: "index.html", label: "ホーム" },
   { href: "goods.html", label: "グッズ販売【郵送】" },
@@ -9,13 +11,14 @@ const NAV_ITEMS = [
   { href: "sponsorship.html", label: "ブース出店&サンプリング" },
   { href: "event.html", label: "過去のイベント" },
   { href: "recruit.html", label: "採用情報" },
-];
-
-const NAV_SUB_ITEMS = [
   { href: "oubo-form.html", label: "応募フォーム" },
   { href: "volunteer.html", label: "ボランティアスタッフ" },
   { href: "news.html", label: "ニュース" },
   { href: "tokushoho.html", label: "特定商取引法に基づく表示" },
+];
+
+// 「その他」ドロップダウンの中身
+const NAV_SUB_ITEMS = [
   { href: "sdgs.html", label: "SDGsの取り組み" },
   { href: "influencer-casting.html", label: "インフルエンサーキャスティング" },
   { href: "sample-sale.html", label: "サンプルセール" },
@@ -102,7 +105,7 @@ function renderFooter() {
       <div>
         <h3>会社情報</h3>
         <ul>
-          <li><a href="hagi.html">取材・メディア掲載はこちら</a></li>
+          <li><a href="hagi.html">株式会社HAGIへの取材・メディア掲載はこちら</a></li>
           <li><a href="recruit.html">採用情報</a></li>
           <li><a href="tokushoho.html">特定商取引法に基づく表示</a></li>
         </ul>

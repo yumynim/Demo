@@ -18,7 +18,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
 
 body {
   font-family: var(--font-jp);
@@ -68,11 +68,12 @@ button { font-family: inherit; cursor: pointer; }
 .header-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
-  height: var(--header-h);
+  padding: 8px 20px;
+  min-height: var(--header-h);
   display: flex;
   align-items: center;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 8px 20px;
 }
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .brand-mark {
@@ -83,12 +84,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .brand-text { font-family: var(--font-en); font-weight: 600; font-size: 16px; letter-spacing: 0.12em; }
 
-.global-nav { margin-left: auto; }
-.global-nav > ul { display: flex; gap: 4px; align-items: center; }
+.global-nav { order: 3; flex-basis: 100%; }
+.global-nav > ul { display: flex; gap: 2px; align-items: center; flex-wrap: wrap; justify-content: center; }
 .global-nav a, .sub-toggle {
   display: block;
-  padding: 8px 10px;
-  font-size: 12.5px;
+  padding: 7px 8px;
+  font-size: 11.5px;
   font-weight: 500;
   letter-spacing: 0.04em;
   background: none;
@@ -127,7 +128,7 @@ button { font-family: inherit; cursor: pointer; }
 .sub-menu a:hover { background: var(--gray-1); }
 .sub-menu a::after { display: none; }
 
-.header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
 .btn-login { padding: 7px 20px; font-size: 12.5px; }
 
 .nav-toggle { display: none; background: none; border: var(--border); width: 42px; height: 42px; position: relative; }
